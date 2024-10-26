@@ -1,17 +1,16 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import styleImport from 'vite-plugin-style-import';
+import imp from 'vite-plugin-imp';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     react(),
-    styleImport({
-      libs: [
+    imp({
+      libList: [
         {
-          libraryName: 'antd',
-          esModule: true,
-          resolveStyle: (name) => `antd/es/${name}/style`,
+          libName: 'antd',
+          style: (name) => `antd/es/${name}/style`,
         },
       ],
     }),
